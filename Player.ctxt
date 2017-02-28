@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=totalMoney
+comment0.target=Player(double)
+comment1.params=
+comment1.target=void\ stand()
+comment2.params=
+comment2.target=int\ getCardTotal()
+comment3.params=money
+comment3.target=void\ addMoney(double)
+comment4.params=c
+comment4.target=void\ addCard(Card)
+comment5.params=bet
+comment5.target=int\ placeBet(double)
+numComments=6

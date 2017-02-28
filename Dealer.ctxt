@@ -1,0 +1,12 @@
+#BlueJ class context
+comment0.params=amountOfDecks
+comment0.target=Dealer(int)
+comment0.text=\r\n\ @param\ amount\ of\ decks\ the\ shoe\ needs\r\n
+comment1.params=player
+comment1.target=Card\ dealToPlayer(Player)
+comment2.params=
+comment2.target=void\ dealToHouse()
+comment3.params=player\ bet
+comment3.target=java.lang.String\ distributeMoney(Player,\ double)
+comment3.text=\r\n\ @param\ player\ card\ total,\ house\ card\ total,\ bet\ total\r\n\ @return\ string\ saying\ who\ won\ and\ how\ much\ they\ won\r\n
+numComments=4
