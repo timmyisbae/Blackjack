@@ -20,5 +20,10 @@ public class Hand
         cards.add(c);
         value += c.getValue();
     }
+    
+    public void clear() {
+        for(int x = 0; x < cards.size(); x ++)
+            cards.remove(x);
+    }
 
 }

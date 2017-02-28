@@ -16,37 +16,65 @@ public class Dealer
     int cardTotal;
     
     /**
-     * @param amount of decks the shoe needs
+     * @param Amount of decks the shoe needs
      */
     public Dealer(int amountOfDecks) {
         shoe = new Shoe(amountOfDecks);
         hand = new Hand();
     }
     
+    /**
+     * Gives the player a randomly drawn card from the shoe
+     * @param The player that is recieving the card
+     * @return The card drawn from the shoe
+     */
     public Card dealToPlayer(Player player) {
-        return shoe.randomCard();
+        Card c = shoe.randomCard();
+        System.out.println(c.getValue() + " " + c.getSuit());
+        player.addCard(c);
+        return c;
     }
     
+    /**
+     * Deals a card to the house's hand
+     */
     public void dealToHouse() {
         Card c = shoe.randomCard();
+        System.out.println(c.getValue() + " " + c.getSuit());
         hand.addCard(c);
         cardTotal += c.getValue();
     }
     
     /**
+     * Compares the card totals for the player and the house and distributes money accordingly
      * @param player card total, house card total, bet total
-     * @return string saying who won and how much they won
      */
-    public String distributeMoney(Player player, double bet) {
+    public void distributeMoney(Player player, double bet) {
+        System.out.println("The house had a card total of " + cardTotal + " and you had a card total of " + player.getCardTotal());
         if(player.getCardTotal() > cardTotal && player.getCardTotal() <= 21) {
             player.addMoney(bet*2);
-            return "You won $" + (bet*2) + "!";
+            System.out.println("You won $" + (bet*2) + "!");
         }
         else if(player.getCardTotal() == cardTotal) {
             player.addMoney(bet);
-            return "It was a tie, you got your money back!";
+            System.out.println("It was a tie, you got your money back!");
         } else
-            return "You lost $" + bet + ".";
+            System.out.println("You lost $" + bet + ".");
     }
     
+    /**
+     * Clears the house's hand and shuffles the shoe
+     */
+    public void resetGame() {
+        hand.clear();
+        cardTotal = 0;
+        shoe.shuffle();
+    }
+    
+    /**
+     * @return The sum of cards in the house's hand
+     */
+    public int getCardTotal() {
+        return cardTotal;
+    }
 }
